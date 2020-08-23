@@ -1,0 +1,11 @@
+.badge {
+  background-color: tomato;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px; /* 원으로 하고 싶으면 세로, 가로길이의 절반 */
+  display: flex; /* span은 inline이라 width, heigh 적용 안되서 바꿔줌 */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+}

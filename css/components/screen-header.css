@@ -1,0 +1,39 @@
+.screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--horizontal-space); /* 상하좌우 25px */
+  padding-top: 55px; /* status-bar fixed 옵션 때문에 padding 추가 */
+  margin-bottom: 12px;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  z-index: 1;
+}
+
+.screen-header__title {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.screen-header__icons span {
+  margin-left: 25px; /* screen_header에서 양쪽으로 margin 잡혀 있으니 
+  아이콘 입장에서 오른쪽에서 margin 줄필요 없음 */
+}
+
+/* animation 용 */
+@keyframes rotateCog {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.screen-header__icons .fa-cog:hover {
+  animation: rotateCog 1s linear infinite;
+}
+/**************/

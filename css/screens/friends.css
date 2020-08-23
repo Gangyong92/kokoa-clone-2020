@@ -1,0 +1,62 @@
+#friends-display-link {
+  text-align: center;
+  display: block; /* text-align 적용하기 위해 block 반영 */
+  background-color: #fafafa;
+  padding: 15px 0px; /* margin 아니고 padding임 margin 늘리면 background-color
+  원하는대로 반영안됨.  */
+  font-size: 18px;
+  margin-bottom: 15px; /* 아래로 margin 줌 사진이랑 떨어지도록 */
+  margin-top: 107px;
+}
+
+#friends-display-link i {
+  color: rgba(0, 0, 0, 0.3); /* icon 색 변경 */
+}
+
+.friends-screen {
+  padding: 0px var(--horizontal-space);
+}
+
+.friends-screen__channel {
+  margin-top: 25px;
+  border-top: var(--main-border);
+  padding-top: 15px;
+}
+
+.friends-screen__channel-header {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes hideSplashScreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    /* display: none; */ /* 클릭 불가 */
+    visibility: hidden; /* 마우스에 걸리지 않게 빠져버림. 클릭은 가능하나
+    브라우저가 splash 화면 인식하고 있음 */
+    /* 뭔가 숨긴다거나 할 때는 이 테크닉 사용하면 안됨 */
+    /* 결국 javascript 사용해야함 */
+  }
+}
+
+/* 제일 위쪽 화면 */
+#splash-screen {
+  background-color: var(--yellow);
+  position: absolute; /* 어떠한 부모도 있는걸 원치 않음 */
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 132px;
+  animation: hideSplashScreen 0.3s ease-in-out forwards; /* forwards 옵션은 animation 끝나고 마지막상태 유지 */
+  /* 치명적인 단점 animation 끝나고 friends 화면 나와도 splash 화면이 덮고 있어서 다른 버튼을 못누름 */
+  animation-delay: 2s;
+  z-index: 3;
+}

@@ -1,0 +1,35 @@
+.alt-header {
+  padding: var(--horizontal-space); /* 상하좌우 25px */
+  padding-top: 51px; /* status-bar fixed 옵션 때문에 padding 추가 */
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 중앙에 오도록 하는 꿀팁 -> 정중앙은 아님 추가 작업필요 */
+}
+
+.alt-header__column {
+  width: 33%; /* 정중앙에 오도록 함, status-bar css에도 적용한 방법임 */
+}
+
+.alt-header__title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.alt-header__column:first-child {
+  margin-right: auto; /* 중앙에 오도록 하는 꿀팁 */
+}
+
+.alt-header__column:nth-child(2) {
+  text-align: center; /* 정중앙에 오도록 함 */
+}
+
+.alt-header__column:last-child {
+  margin-left: auto; /* 중앙에 오도록 하는 꿀팁 */
+  display: flex; /* 정중앙에 오도록 함 */
+  justify-content: flex-end; /* 정중앙에 오도록 함 */
+}
+
+.alt-header__column span:last-child {
+  margin-left: 20px;
+}

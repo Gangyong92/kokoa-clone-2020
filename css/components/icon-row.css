@@ -1,0 +1,19 @@
+.icons-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons-row__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icons-row__icon i {
+  font-size: 35px; /* 중요 중요 icon에 font-size 줘도 크기 늘어남 */
+}
+
+.icons-row__icon span {
+  margin-top: 18px; /* find-icons__icon이 flex라서 span 상하 margin 됨 */
+  font-weight: 600;
+}

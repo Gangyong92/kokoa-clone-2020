@@ -1,0 +1,125 @@
+.recommended-friends {
+  margin: 25px 0;
+  padding: 25px 0px;
+  border-top: var(--main-border);
+  border-bottom: var(--main-border);
+}
+
+.recommended-friends__title {
+  font-size: 18px;
+  color: var(--gray);
+}
+
+.recommended-friends span {
+  display: block; /* span이 inline이라 상하 margin 적용 안되서 변경 */
+  margin: 100px 0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 18px;
+}
+
+.open-chat__header {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+.open-chat__header span {
+  opacity: 0.6;
+}
+
+.open-post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.open-post__title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.open-post__hashtags {
+  text-transform: uppercase; /* 대문자 변환 */
+  opacity: 0.6;
+}
+
+.open-post__members {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+}
+
+.open-post__members img {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.open-post_member-count {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.open-post__members .divider {
+  width: 2px; /* 두께 2 */
+  height: 15px; /* 높이 15 */
+  margin: 0px 5px; /* 양쪽 마진 */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.open-post__member-status {
+  color: #ffb0e0;
+}
+
+.open-post__photo {
+  position: relative; /* 그림위로 하트 카운트 올리기 위해 추가 */
+}
+
+.open-post__photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+.open-post__heart-count {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute; /* 그림위로 하트 카운트 올리기 위해 추가 */
+  bottom: 10px; /* 하트 위치 이동 */
+  right: 10px; /* 하트 위치 이동 */
+  font-size: 12px;
+}
+
+.open-post__heart-count span {
+  margin-left: 3px;
+}
+
+/* animation */
+@keyframes heartBeat {
+  0% {
+    color: white;
+    transform: none;
+  }
+  50% {
+    color: tomato;
+    transform: scale(1.5);
+  }
+  100% {
+    color: white;
+    transform: none;
+  }
+}
+
+.open-post__heart-count:hover i {
+  will-change: transform; /* transform: scale(1.5); 했을때 진동 있음. will-change 속성을 추가하여
+  미리 브라우저에 알려줌. 진동 제거 */
+  animation: heartBeat 1s linear infinite;
+}
+/*************/

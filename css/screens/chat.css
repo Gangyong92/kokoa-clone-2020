@@ -1,0 +1,198 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 500vh; /* 길게 스크롤하기 위해 */
+}
+
+/* alt-header 고정 */
+#chat-screen .alt-header {
+  top: 0; /* alt-header 고정 */
+  z-index: 1;
+  position: fixed; /* alt-header 고정, 레이어가 바뀜 주의 */
+  width: 100%; /* fixed 주면 content가 앞으로 가버려서 100% 줌 */
+  box-sizing: border-box; /* width 100% 줬을때 아이콘이 사라져서 box 사이즈 고정 */
+  background-color: #abc1d1; /* 스크롤시 고정영역에 이동영역 글자 보이는거 막기 위함
+  고정 영역 레이어가 꼬이기때문에 z-index로 레이어 순서 정해줘야함 */
+  /* alt-header가 색으로 가려줘서 status bar는 배경색 안줘도됨. 레이어영역 겹치기 때문 */
+}
+
+#chat-screen .status-bar {
+  z-index: 2; /* 숫자가 높을 수록 레이어가 위로 올라옴 */
+  background-color: #abc1d1;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.main-chat {
+  animation: fadeIn 0.8s linear;
+}
+/*************/
+
+.main-chat {
+  margin-top: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat__timestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.message__author {
+  display: block; /* span에 margin 넣기 위해 변경 */
+  margin-bottom: 5px;
+}
+
+.message__bubble {
+  background-color: white;
+  padding: 13px;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.message__author,
+.message__time {
+  opacity: 0.8;
+  font-size: 15px;
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message-row--own {
+  justify-content: flex-end;
+}
+
+.message-row--own .message__bubble {
+  background-color: var(--yellow);
+  border-top-right-radius: 0px;
+  border-top-left-radius: 15px;
+  margin-right: 0px;
+  margin-left: 5px;
+}
+
+/* 정렬 : 2 : 코드가 간결 */
+.message-row--own .message__info {
+  flex-direction: row-reverse; /* HTML 손 안대고 순서 변경 가능 */
+}
+
+.reply {
+  position: fixed; /* 아래에 고정 */
+  bottom: 0; /* 아래에 고정 */
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px;
+  box-sizing: border-box;
+  align-items: center;
+  transition: transform 0.3s ease-in-out; /* .reply:focus-within animation */
+}
+
+.reply .reply_column:first-child {
+  width: 10%; /* 100% 주니까 뒤쪽으로  가버림 column width 주기 */
+}
+
+.reply .reply__column:last-child {
+  width: 90%; /* 100% 주니까 뒤쪽으로  가버림 column width 주기 */
+  position: relative; /* input 창에 올리기 위해 */
+}
+
+.reply i {
+  opacity: 0.5;
+}
+
+.reply input {
+  padding: 10px 12px;
+  width: 95%; /* 100% 주니까 뒤쪽으로  가버림 column width 주기 */
+  border: var(--main-border);
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out; /* .reply:focus-within input animation 위해 추가 2개라서 all */
+}
+
+.reply__column:last-child > i,
+.reply__column:last-child button {
+  position: absolute; /* input 창에 올리기 위해 */
+  right: -2px;
+  top: 3px;
+}
+
+.reply__column:last-child > i {
+  right: 40px;
+  top: 10px;
+}
+
+.reply__column button {
+  background-color: var(--yellow);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.reply__column button i {
+  opacity: 1;
+}
+
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none;
+}
+
+/* animation */
+.reply .reply__column:first-child,
+.reply .fa-smile,
+.reply button {
+  /* 좀 특이한 사용법임 */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile,
+.reply:focus-within button {
+  /* focus-within은 focused인 자식이 있는지 부모가 알수 있음 x */
+  /* 현재 코드는 뒤에 자식들이 움직임 */
+  opacity: 0;
+}
+
+.reply:focus-within input {
+  width: 90vw;
+  transform: translateX(-13%) translateY(-80px);
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
+}
+/*************/

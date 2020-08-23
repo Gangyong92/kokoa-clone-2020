@@ -1,0 +1,63 @@
+.welcome-header {
+  margin: 90px 0px; /* 변경하다보니 상하 margin이 비슷해보여서 그냥 통일 */
+  margin-top: 116px; /* status-bar fixed 바꾸니까 welcome-header가 겹쳐지는 것
+  보여서 top쪽 margin 더 줌. 90에서 26 더준것임 */
+  text-align: center;
+  display: flex; /* text-align으로 text를 중앙으로 변경 했지만 .welcome-header__text에서 
+  가로 길이 수정으로 인해 틀어져서 flex 사용 */
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600; /* Open San 폰트 굵기 적용. */
+}
+
+.welcome-header__title {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.welcome-header__text {
+  width: 60%;
+  opacity: 0.7; /* 회색 대신에 투명도 조절 */
+}
+
+/* id 사용법. 선호하지는 않음 */
+#login-form {
+  display: flex;
+  flex-direction: column; /* 주축 변경 */
+  margin: 0px 30px; /* 좌우 margin 측정 후 반영 */
+}
+
+#login-form input {
+  border: none; /* 테두리 제거 */
+  padding: 15px 0px; /* Text 기준으로 위아래 padding 추가 */
+  font-size: 18px;
+  margin-bottom: 25px; /* input간 bottom에 margin 추가 */
+}
+
+/* type 이 submit 아닌 input만 적용 */
+#login-form input:not([type="submit"]) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease-in-out; /* #login-form input:focus 적용 */
+}
+
+#login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.4); /* placeholder만 더 연하게 바꿔야함 */
+}
+
+#login-form input:focus {
+  border-color: var(--yellow); /* input 선택하면 border 색 바뀌도록 적용 */
+}
+
+#login-form input[type="submit"] {
+  background-color: var(--yellow);
+  cursor: pointer; /* 커서 올리면 pointer 바뀜, not-allowed, pointer, progress */
+  padding: 20px 0px; /* 위에서 input padding 15px씩 줬지만 버튼은 20px로 재적용 */
+  border-radius: 5px;
+}
+
+#login-form a {
+  text-align: center;
+  text-decoration: none;
+  color: inherit; /* 부모로부터 상속 받음 -> login-form */
+  font-size: 13px;
+}

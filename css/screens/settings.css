@@ -1,0 +1,27 @@
+.settings-alt-header {
+  top: 0; /* alt-header 고정 */
+  z-index: 1;
+  position: fixed; /* alt-header 고정, 레이어가 바뀜 주의 */
+  width: 100%; /* fixed 주면 content가 앞으로 가버려서 100% 줌 */
+  box-sizing: border-box; /* width 100% 줬을때 아이콘이 사라져서 box 사이즈 고정 */
+  background-color: white; /* 스크롤시 고정영역에 이동영역 글자 보이는거 막기 위함 */
+}
+
+.settings__setting {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings__setting i {
+  opacity: 0.8;
+  margin-right: 20px;
+  font-size: 22px;
+}
+
+.settings_setting-column:last-child {
+  opacity: 0.5;
+}
